@@ -25,11 +25,11 @@
 # === Authors
 # 
 #
-class windows_visualcplusplus2008 (
-  $url       = $::windows_visualcplusplus2008::params::url,
-  $package   = $::windows_visualcplusplus2008::params::package,
+class visualcplusplus2008 (
+  $url       = $::visualcplusplus2008::params::url,
+  $package   = $::visualcplusplus2008::params::package,
   $file_path = false,
-) inherits windows_visualcplusplus2008::params {
+) inherits visualcplusplus2008::params {
 
   if $file_path {
     $visualcplusplus2008_installer_path = $file_path
@@ -44,7 +44,7 @@ class windows_visualcplusplus2008 (
   package { $package:
     ensure          => installed,
     source          => $visualcplusplus2008_installer_path,
-    install_options => ['/VERYSILENT','/SUPPRESSMSGBOXES','/LOG'],
+    install_options => ['/Q','/SUPPRESSMSGBOXES','/LOG'],
   }
-  
 }
+
